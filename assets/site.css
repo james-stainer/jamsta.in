@@ -958,22 +958,17 @@ a:focus-visible > .arrow {
 html.js a[data-sel]:focus-visible,
 html.js .cell-title a:focus-visible { outline: none; }
 
-/* The other person in the file. */
+/* The other person in the file. The script moves it; here it only fades in. */
 .ghost {
   position: absolute;
   top: 0;
   left: 0;
   opacity: 0;
-  transition: transform 1.1s cubic-bezier(.45, .05, .15, 1), opacity .35s ease;
+  transition: opacity .35s ease;
+  will-change: transform;
 }
 
 .ghost.on { opacity: 1; }
-
-.ghost-inner {
-  position: relative;
-  display: block;
-  animation: idle 7s ease-in-out infinite;
-}
 
 .ghost svg {
   display: block;
@@ -985,7 +980,7 @@ html.js .cell-title a:focus-visible { outline: none; }
   paint-order: stroke;
 }
 
-.ghost span span {
+.ghost span {
   position: absolute;
   left: 11px;
   top: 13px;
@@ -997,12 +992,6 @@ html.js .cell-title a:focus-visible { outline: none; }
   font-weight: 500;
   line-height: 1.45;
   white-space: nowrap;
-}
-
-@keyframes idle {
-  0%, 100% { transform: translate(0, 0); }
-  35% { transform: translate(2px, 1.5px); }
-  70% { transform: translate(-1.5px, 2px); }
 }
 
 /* Line art, drawn only in hairlines and low-opacity ink. Colour arrives on selection. */
