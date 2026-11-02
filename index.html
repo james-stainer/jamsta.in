@@ -2,152 +2,102 @@
 <html lang="en-GB">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1">
-<title>James Stainer | Machine learning and data science</title>
-<meta name="description" content="James Stainer builds forecasting systems and data pipelines on large, real-world data, and evaluates how frontier AI models reason. London, UK.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>James Stainer</title>
+<meta name="description" content="James Stainer works on machine learning for medicine and tests how well AI reasons. London, UK.">
 <link rel="canonical" href="https://jamsta.in/">
-<meta property="og:type" content="profile">
-<meta property="og:title" content="James Stainer | Machine learning and data science">
-<meta property="og:description" content="Forecasting systems, data pipelines and AI evaluation. London, UK.">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="James Stainer">
+<meta property="og:title" content="James Stainer">
+<meta property="og:description" content="James Stainer works on machine learning for medicine and tests how well AI reasons. London, UK.">
 <meta property="og:url" content="https://jamsta.in/">
-<link rel="icon" href="favicon.svg" type="image/svg+xml">
-<link rel="stylesheet" href="styles.css">
-<script type="application/ld+json">
-{
-  "@context": "https://schema.org",
-  "@type": "Person",
-  "name": "James Stainer",
-  "url": "https://jamsta.in/",
-  "jobTitle": "Data Science Consultant",
-  "address": { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" },
-  "alumniOf": ["University College London", "Lancaster University"],
-  "sameAs": [
-    "https://uk.linkedin.com/in/james-stainer-1a0a84140",
-    "https://scholar.google.com/citations?user=jifKNDAAAAAJ"
-  ]
-}
+<meta property="og:image" content="https://jamsta.in/assets/og.png">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="theme-color" content="#f1f2f4" media="(prefers-color-scheme: light)">
+<meta name="theme-color" content="#0d0f13" media="(prefers-color-scheme: dark)">
+<link rel="icon" href="/favicon.svg" type="image/svg+xml">
+<link rel="preload" href="/assets/fonts/geist.woff2" as="font" type="font/woff2" crossorigin>
+<link rel="expect" href="#frames" blocking="render">
+<link rel="stylesheet" href="/assets/site.css">
+<script>
+(function () {
+  var root = document.documentElement;
+  root.classList.add('js');
+  try { var theme = localStorage.getItem('theme'); if (theme) root.dataset.theme = theme; } catch (e) {}
+  addEventListener('pagereveal', function (event) { if (event.viewTransition) root.classList.add('vt'); });
+})();
 </script>
+<script>
+(function () {
+  var clicked = null;
+  function parts(path) {
+    var link = document.querySelector('.thumb[href="' + path + '"]');
+    if (!link) return null;
+    return [[link.querySelector('.thumb-box'), 'frame'], [link.querySelector('svg'), 'frame-body'], [link.querySelector('.thumb-name'), 'frame-label']];
+  }
+  function name(set, on) {
+    if (set) set.forEach(function (part) { part[0].style.viewTransitionName = on ? part[1] : ''; });
+  }
+  document.addEventListener('click', function (event) {
+    var link = event.target.closest && event.target.closest('.thumb');
+    if (link) clicked = link.getAttribute('href');
+  });
+  addEventListener('pageswap', function (event) {
+    if (!event.viewTransition) return;
+    var path = event.activation ? new URL(event.activation.entry.url).pathname : clicked;
+    var set = path && parts(path);
+    name(set, true);
+    event.viewTransition.finished.then(function () { name(set, false); });
+  });
+  addEventListener('pagereveal', function (event) {
+    if (!event.viewTransition) return;
+    var nav = window.navigation && navigation.activation;
+    var from = (nav && nav.from && nav.from.url) || document.referrer;
+    var set = from && parts(new URL(from).pathname);
+    name(set, true);
+    event.viewTransition.ready.then(function () { name(set, false); });
+  });
+})();
+</script>
+<script type="application/ld+json">
+{"@context":"https://schema.org","@type":"Person","name":"James Stainer","url":"https://jamsta.in/","address":{"@type":"PostalAddress","addressLocality":"London","addressCountry":"GB"},"alumniOf":["University College London","Lancaster University"],"sameAs":["https://uk.linkedin.com/in/james-stainer-1a0a84140","https://scholar.google.com/citations?user=jifKNDAAAAAJ"]}
+</script>
+<script src="/assets/site.js" defer></script>
 </head>
-<body>
-<a class="skip" href="#main">Skip to content</a>
-
-<header class="hero wrap">
-  <h1>James Stainer</h1>
-  <p class="lede">I build forecasting systems and data pipelines on large, real-world data, and test how well frontier AI models reason.</p>
-  <p class="meta">London, UK. Open to machine learning, data science and AI evaluation roles.</p>
-  <nav class="links" aria-label="Contact and profiles">
-    <a class="primary" href="mailto:stainerjames@hotmail.com">Email me</a>
-    <a href="James_Stainer_CV.pdf">CV (PDF)</a>
-    <a href="https://uk.linkedin.com/in/james-stainer-1a0a84140">LinkedIn</a>
-    <a href="https://scholar.google.com/citations?user=jifKNDAAAAAJ">Google Scholar</a>
-  </nav>
-  <p class="print-contact"><a href="https://jamsta.in/">jamsta.in</a> | <a href="mailto:stainerjames@hotmail.com">stainerjames@hotmail.com</a> | <a href="https://uk.linkedin.com/in/james-stainer-1a0a84140">LinkedIn</a> | <a href="https://scholar.google.com/citations?user=jifKNDAAAAAJ">Google Scholar</a></p>
-  <svg class="trace" viewBox="0 0 960 64" preserveAspectRatio="none" aria-hidden="true" focusable="false">
-    <path class="observed" d="M0 40 H70 l8 -3 l8 3 H112 l6 5 l9 -35 l9 42 l6 -12 H204 l8 -3 l8 3 H246 l6 5 l9 -35 l9 42 l6 -12 H338 l8 -3 l8 3 H380 l6 5 l9 -35 l9 42 l6 -12 H472 l8 -3 l8 3 H514 l6 5 l9 -35 l9 42 l6 -12 H606"/>
-    <path class="forecast" d="M606 40 l8 -3 l8 3 H648 l6 5 l9 -35 l9 42 l6 -12 H740 l8 -3 l8 3 H782 l6 5 l9 -35 l9 42 l6 -12 H874 l8 -3 l8 3 H960"/>
-  </svg>
+<body class="home">
+<header class="bar">
+  <div class="bar-end">
+    <span class="clock" data-clock>London</span>
+    <button class="theme" type="button" data-theme-toggle aria-label="Switch theme"><svg viewBox="0 0 16 16" aria-hidden="true" focusable="false"><circle cx="8" cy="8" r="6.25" fill="none" stroke="currentColor" stroke-width="1.25"/><path d="M8 1.75a6.25 6.25 0 0 1 0 12.5z" fill="currentColor"/></svg></button>
+  </div>
 </header>
-
-<main id="main" class="wrap">
-
-  <section aria-labelledby="work">
-    <h2 id="work">Selected work</h2>
-
-    <article class="project">
-      <h3>Forecasting vital signs in paediatric intensive care</h3>
-      <p class="sub">PhD thesis, UCL and Great Ormond Street Hospital</p>
-      <p>I used a PyTorch StemGNN model to forecast heart rate and blood pressure together from 5-second bedside-monitor data, treating the dependencies between them as a learned graph.</p>
-      <p>I also built the clinical time-series pipeline behind it, which took 4,120 raw admissions down to 364 high-quality patients and about 12.5M observations. It covers age-aware normalisation, missing data, outlier detection and sliding-window segmentation.</p>
-      <table class="result">
-        <caption>Error on 5-minute-ahead forecasts at 1-minute resolution (MAPE, lower is better)</caption>
-        <thead><tr><th scope="col">Model</th><th scope="col">Heart rate</th><th scope="col">Blood pressure</th></tr></thead>
-        <tbody>
-          <tr class="win"><th scope="row">StemGNN</th><td>2.30%</td><td>3.49%</td></tr>
-          <tr><th scope="row">ARIMA</th><td>2.82%</td><td>3.85%</td></tr>
-        </tbody>
-      </table>
-    </article>
-
-    <article class="project">
-      <h3>DrugnomeAI: predicting which human genes can be drugged</h3>
-      <p class="sub">With AstraZeneca's Centre for Genomics Research. Published in <cite>Communications Biology</cite>, 2022</p>
-      <p>An ensemble machine-learning framework that scores all 19,846 human protein-coding genes for druggability, using 324 features from 15 sources. Specialised models are stratified by drug modality (small molecule, antibody, PROTAC) and by therapeutic area.</p>
-      <p>Top-ranked genes were significantly enriched for targets already in clinical development, and for genome-wide significant hits in a UK Biobank PheWAS of 450K participants. The framework outperformed three published benchmarks.</p>
-      <p class="more">
-        <a href="https://doi.org/10.1038/s42003-022-04245-4">Paper</a>
-        <a href="https://github.com/astrazeneca-cgr-publications/DrugnomeAI-release">GitHub</a>
-        <a href="http://drugnomeai.public.cgr.astrazeneca.com">Web app</a>
-      </p>
-    </article>
-
-    <article class="project">
-      <h3>Adversarial evaluation of frontier AI agents</h3>
-      <p class="sub">Freelance, current</p>
-      <p>I write hard bioinformatics and scientific coding tasks that benchmark how frontier LLM agents reason, each with a reference solver, a grading contract and a deliberate reasoning trap. I then audit the agent transcripts for answer leakage, shortcuts and data bugs, so a failure means the model got it wrong and not that the task was broken.</p>
-    </article>
-  </section>
-
-  <section aria-labelledby="experience">
-    <h2 id="experience">Experience</h2>
-    <dl class="timeline">
-      <dt>Dec 2023 to present</dt>
-      <dd>
-        <h3>Freelance AI Evaluator and Data Science Consultant</h3>
-        <p class="sub">Remote</p>
-        <p>AI evaluation and data science across multiple client projects: model-output review, scientific reasoning benchmarks, failure-mode analysis and applied AI workflows.</p>
-      </dd>
-      <dt>Oct 2022 to Apr 2023</dt>
-      <dd>
-        <h3>Data Science Intern</h3>
-        <p class="sub">AstraZeneca, Centre for Genomics Research, Cambridge</p>
-        <p>Built a PubMed-to-Elasticsearch pipeline indexing over 35M biomedical citations and abstracts. Added NLP pipelines, using BioWordVec embeddings, that ranked candidate drug-target-disease relationships for expert review in place of broad manual search.</p>
-      </dd>
-      <dt>Jun 2020 to Sep 2020</dt>
-      <dd>
-        <h3>Data Science Intern</h3>
-        <p class="sub">AstraZeneca, Centre for Genomics Research, Cambridge</p>
-        <p>Co-developed the DrugnomeAI models, working across the ML pipeline from data collection and feature engineering through to training, validation and benchmarking.</p>
-      </dd>
-    </dl>
-  </section>
-
-  <section aria-labelledby="education">
-    <h2 id="education">Education</h2>
-    <dl class="timeline">
-      <dt>2021 to 2026</dt>
-      <dd><h3>PhD, AI-enabled Healthcare</h3><p class="sub">University College London. Viva passed October 2026 with minor corrections.</p></dd>
-      <dt>2020 to 2021</dt>
-      <dd><h3>MRes, AI-enabled Healthcare</h3><p class="sub">University College London</p></dd>
-      <dt>2019 to 2020</dt>
-      <dd><h3>MSc, Data Science</h3><p class="sub">Lancaster University</p></dd>
-      <dt>2016 to 2019</dt>
-      <dd><h3>BSc (Hons), Mathematics</h3><p class="sub">Lancaster University</p></dd>
-    </dl>
-  </section>
-
-  <section aria-labelledby="publications">
-    <h2 id="publications">Publications and presentations</h2>
-    <ul class="pubs">
-      <li>Raies A, Tulodziecka E, <strong>Stainer J</strong>, et al. <a href="https://doi.org/10.1038/s42003-022-04245-4">DrugnomeAI is an ensemble machine-learning framework for predicting druggability of candidate drug targets.</a> <cite>Communications Biology</cite> 5, 1291 (2022).</li>
-      <li><strong>Stainer J</strong>, et al. Poster, IEEE Engineering in Medicine and Biology Society (EMBS) Conference, 2024.</li>
-      <li><strong>Stainer J</strong>, et al. Poster, IEEE International Conference on Biomedical and Health Informatics (BHI), 2024.</li>
-    </ul>
-  </section>
-
-  <section aria-labelledby="skills">
-    <h2 id="skills">Skills</h2>
-    <dl class="skills">
-      <dt>Languages</dt><dd>Python, SQL, R, Bash</dd>
-      <dt>Machine learning</dt><dd>PyTorch, TensorFlow, scikit-learn, graph neural networks, NLP, ensemble methods</dd>
-      <dt>Methods</dt><dd>Time-series forecasting, statistical and Bayesian inference, change-point detection</dd>
-      <dt>Data and infrastructure</dt><dd>Data pipelines, pandas, NumPy, Elasticsearch, feature engineering, SLURM, Git</dd>
-    </dl>
-  </section>
-
+<main class="home-main">
+  <div class="intro">
+    <h1 class="enter">James Stainer</h1>
+    <p class="enter" style="--i: 1">Machine learning for medicine.<br>Testing how well AI reasons.</p>
+  </div>
+  <nav class="frames" id="frames" aria-label="Pages">
+    <a class="thumb enter" href="/research/" data-sel style="--i: 2">
+      <span class="thumb-name">Research</span>
+      <span class="thumb-box" data-sel-box><svg class="art" viewBox="0 0 236 300" aria-hidden="true" focusable="false"><rect class="h" x="20" y="22" width="70" height="7" rx="3.5"/><rect class="b1" x="20" y="37" width="132" height="3" rx="1.5"/><rect class="b1" x="20" y="44" width="92" height="3" rx="1.5"/><path class="l1" d="M155.5 62V120"/><path class="l2" d="M0 73.5L5.4 75.1L10.7 77.7L16.1 79.3L21.5 79.1L26.8 80.3L32.2 80.1L37.5 78.2L42.9 78.1L48.3 76.8L53.6 76.8L59 76.6L64.4 77.8L69.7 77.9L75.1 78.4L80.5 79.8L85.8 80.2L91.2 80.7L96.5 81.8L101.9 80.9L107.3 81.6L112.6 82.9L118 84.7L123.4 85.2L128.7 87.8L134.1 89.4L139.5 90.7L144.8 91.8L150.2 91.6L155.5 91.6M0 99.8L5.4 99.1L10.7 98.4L16.1 97.7L21.5 98.5L26.8 98.6L32.2 99.3L37.5 99.9L42.9 100.2L48.3 100.7L53.6 100.6L59 101.6L64.4 102.2L69.7 103.5L75.1 104.8L80.5 106.4L85.8 107.8L91.2 109.7L96.5 111L101.9 111.5L107.3 111L112.6 111.1L118 110L123.4 109.3L128.7 108.4L134.1 108.2L139.5 107.8L144.8 108L150.2 108.1L155.5 108"/><g class="reveal"><path class="as" stroke-dasharray="3 3" d="M155.5 91.6L160.9 89.7L166.3 88.5L171.6 86L177 84.4L182.4 84.4L187.7 83.4L193.1 82.5L198.5 80.7L203.8 80.6L209.2 79.3L214.5 78.4L219.9 76.6L225.3 75.4L230.6 74.4L236 73.6M155.5 108L160.9 108.1L166.3 108L171.6 107.5L177 106.3L182.4 106.1L187.7 106L193.1 105.6L198.5 106.2L203.8 106.8L209.2 107.3L214.5 108.2L219.9 108.2L225.3 107.5L230.6 107L236 105.3"/></g><path class="l1" d="M0 56H236M0 126H236"/><path class="l1" d="M20 140H216V198H20ZM118 140V198M20 169H216"/><rect class="b2" x="28" y="148" width="34" height="5" rx="2.5"/><rect class="b1" x="28" y="157" width="48" height="2.5" rx="1.2"/><rect class="b2" x="28" y="177" width="34" height="5" rx="2.5"/><rect class="b1" x="28" y="186" width="48" height="2.5" rx="1.2"/><rect class="b2" x="126" y="148" width="34" height="5" rx="2.5"/><rect class="b1" x="126" y="157" width="48" height="2.5" rx="1.2"/><rect class="b2" x="126" y="177" width="34" height="5" rx="2.5"/><rect class="b1" x="126" y="186" width="48" height="2.5" rx="1.2"/><path class="l1" d="M20 214H216"/><rect class="b2" x="20" y="221" width="128" height="3" rx="1.5"/><rect class="b1" x="20" y="228" width="78" height="2.5" rx="1.2"/><path class="l1" d="M20 238H216"/><rect class="b2" x="20" y="245" width="106" height="3" rx="1.5"/><rect class="b1" x="20" y="252" width="78" height="2.5" rx="1.2"/><path class="l1" d="M20 262H216"/><rect class="b2" x="20" y="269" width="84" height="3" rx="1.5"/><rect class="b1" x="20" y="276" width="78" height="2.5" rx="1.2"/></svg></span>
+    </a>
+    <a class="thumb enter" href="/projects/" data-sel style="--i: 3">
+      <span class="thumb-name">Projects</span>
+      <span class="thumb-box" data-sel-box><svg class="art" viewBox="0 0 236 300" aria-hidden="true" focusable="false"><rect class="h" x="20" y="22" width="66" height="7" rx="3.5"/><path class="l1" d="M0 46H236M0 173H236M118.0 46V300"/><path class="l2" d="M19.3 111V67.8M22.5 111V71.4M25.7 111V77.6M28.9 111V82.6M32 111V91.1M35.2 111V94.7M38.4 111V97.9M41.6 111V101.6M44.7 111V103.6M47.9 111V105.9M51.1 111V106.7M54.2 111V107.5M57.4 111V107.8M60.6 111V108.1M63.8 111V108.5M66.9 111V108.5M70.1 111V108.6M73.3 111V108.4M76.4 111V108.5M79.6 111V108.7M82.8 111V108.5M86 111V108.8M89.1 111V108.6M92.3 111V108.8M95.5 111V108.8M98.7 111V108.5M101.8 111V108.8M105 111V108.8"/><g class="reveal"><path class="as" d="M13 111V63.1M16.2 111V64.8"/></g><path class="l1" d="M189.3 59V111"/><path class="l2" d="M131 69.4L134.1 71.5L137.1 74.4L140.2 75.6L143.3 74.5L146.3 74.3L149.4 73.2L152.5 71.5L155.5 72.6L158.6 73.1L161.7 74.8L164.7 75.5L167.8 76.6L170.9 76.2L173.9 76.6L177 78.7L180.1 80.8L183.1 83.5L186.2 86.2L189.3 85.8M131 92.9L134.1 92L137.1 91.5L140.2 91.4L143.3 92.6L146.3 93L149.4 93.5L152.5 93.9L155.5 94.7L158.6 96.3L161.7 98L164.7 100.8L167.8 102.5L170.9 103.5L173.9 103.2L177 102.2L180.1 100.8L183.1 100.4L186.2 100.4L189.3 100.5"/><g class="reveal"><path class="as" stroke-dasharray="3 3" d="M189.3 85.8L192.3 85L195.4 83.3L198.5 81.3L201.5 78.3L204.6 77.5L207.7 76.3L210.7 75L213.8 73.7L216.9 71.4L219.9 70.5L223 69.1M189.3 100.5L192.3 100.1L195.4 100.4L198.5 99.3L201.5 98.7L204.6 98.2L207.7 98.7L210.7 99.2L213.8 100.2L216.9 100.3L219.9 99.4L223 97.9"/></g><path class="l1" d="M13 212C28.3 212 28.3 197.1 43.7 197.1M13 212C28.3 212 28.3 226.9 43.7 226.9M43.7 197.1C59 197.1 59 189.7 74.3 189.7M43.7 197.1C59 197.1 59 204.6 74.3 204.6M43.7 226.9C59 226.9 59 219.4 74.3 219.4M43.7 226.9C59 226.9 59 234.3 74.3 234.3M74.3 189.7C89.7 189.7 89.7 186 105 186M74.3 189.7C89.7 189.7 89.7 193.4 105 193.4M74.3 204.6C89.7 204.6 89.7 200.9 105 200.9M74.3 204.6C89.7 204.6 89.7 208.3 105 208.3M74.3 219.4C89.7 219.4 89.7 215.7 105 215.7M74.3 219.4C89.7 219.4 89.7 223.1 105 223.1M74.3 234.3C89.7 234.3 89.7 230.6 105 230.6M74.3 234.3C89.7 234.3 89.7 238 105 238"/><g class="reveal"><path class="as" d="M13 212C28.3 212 28.3 226.9 43.7 226.9M43.7 226.9C59 226.9 59 219.4 74.3 219.4M74.3 219.4C89.7 219.4 89.7 223.1 105 223.1"/></g><circle class="b2" cx="105" cy="186" r="1.5"/><circle class="b2" cx="105" cy="193.4" r="1.5"/><circle class="b2" cx="105" cy="200.9" r="1.5"/><circle class="b2" cx="105" cy="208.3" r="1.5"/><circle class="b2" cx="105" cy="215.7" r="1.5"/><circle class="af" cx="105" cy="223.1" r="1.5"/><circle class="b2" cx="105" cy="230.6" r="1.5"/><circle class="b2" cx="105" cy="238" r="1.5"/><rect class="b1" x="131" y="186.8" width="6.4" height="2.5" rx="1.2"/><rect class="b1" x="139.5" y="186.8" width="10.4" height="2.5" rx="1.2"/><rect class="b1" x="152" y="186.8" width="7.1" height="2.5" rx="1.2"/><rect class="b1" x="161.2" y="186.8" width="5.9" height="2.5" rx="1.2"/><rect class="b1" x="169.2" y="186.8" width="10.4" height="2.5" rx="1.2"/><rect class="b1" x="181.8" y="186.8" width="17.4" height="2.5" rx="1.2"/><rect class="af hit" style="--d:0" x="201.3" y="186.8" width="15.8" height="2.5" rx="1.2"/><rect class="b1" x="131" y="196.3" width="8" height="2.5" rx="1.2"/><rect class="b1" x="141.1" y="196.3" width="12.3" height="2.5" rx="1.2"/><rect class="b1" x="155.5" y="196.3" width="8.8" height="2.5" rx="1.2"/><rect class="b1" x="166.3" y="196.3" width="7.4" height="2.5" rx="1.2"/><rect class="b1" x="175.8" y="196.3" width="6.5" height="2.5" rx="1.2"/><rect class="b1" x="184.4" y="196.3" width="7.9" height="2.5" rx="1.2"/><rect class="af hit" style="--d:1" x="194.4" y="196.3" width="17.5" height="2.5" rx="1.2"/><rect class="b1" x="131" y="205.9" width="15.8" height="2.5" rx="1.2"/><rect class="b1" x="148.9" y="205.9" width="7.6" height="2.5" rx="1.2"/><rect class="b1" x="158.6" y="205.9" width="9.2" height="2.5" rx="1.2"/><rect class="b1" x="169.9" y="205.9" width="13.5" height="2.5" rx="1.2"/><rect class="b1" x="185.5" y="205.9" width="14.9" height="2.5" rx="1.2"/><rect class="b1" x="202.5" y="205.9" width="16.5" height="2.5" rx="1.2"/><rect class="af hit" style="--d:2" x="131" y="215.6" width="6.2" height="2.5" rx="1.2"/><rect class="b1" x="139.3" y="215.6" width="13.2" height="2.5" rx="1.2"/><rect class="b1" x="154.6" y="215.6" width="14.1" height="2.5" rx="1.2"/><rect class="b1" x="170.8" y="215.6" width="11.8" height="2.5" rx="1.2"/><rect class="b1" x="184.7" y="215.6" width="7.4" height="2.5" rx="1.2"/><rect class="b1" x="194.2" y="215.6" width="11.4" height="2.5" rx="1.2"/><rect class="b1" x="207.7" y="215.6" width="6.2" height="2.5" rx="1.2"/><rect class="af hit" style="--d:3" x="131" y="225.2" width="12.4" height="2.5" rx="1.2"/><rect class="b1" x="145.5" y="225.2" width="9.1" height="2.5" rx="1.2"/><rect class="b1" x="156.7" y="225.2" width="17.3" height="2.5" rx="1.2"/><rect class="b1" x="176" y="225.2" width="12.7" height="2.5" rx="1.2"/><rect class="b1" x="190.9" y="225.2" width="16.9" height="2.5" rx="1.2"/><rect class="b1" x="131" y="234.8" width="10.6" height="2.5" rx="1.2"/><rect class="b1" x="143.7" y="234.8" width="13.1" height="2.5" rx="1.2"/><rect class="af hit" style="--d:4" x="158.9" y="234.8" width="10.8" height="2.5" rx="1.2"/><rect class="b1" x="171.8" y="234.8" width="7.2" height="2.5" rx="1.2"/><rect class="b1" x="181.1" y="234.8" width="9.1" height="2.5" rx="1.2"/><rect class="b1" x="192.4" y="234.8" width="16" height="2.5" rx="1.2"/><rect class="b2" x="13" y="124" width="44" height="3.5" rx="1.8"/><rect class="b1" x="13" y="133" width="84" height="2.5" rx="1.2"/><rect class="b1" x="13" y="140" width="66" height="2.5" rx="1.2"/><rect class="b2" x="131" y="124" width="44" height="3.5" rx="1.8"/><rect class="b1" x="131" y="133" width="84" height="2.5" rx="1.2"/><rect class="b1" x="131" y="140" width="66" height="2.5" rx="1.2"/><rect class="b2" x="13" y="251" width="44" height="3.5" rx="1.8"/><rect class="b1" x="13" y="260" width="84" height="2.5" rx="1.2"/><rect class="b1" x="13" y="267" width="66" height="2.5" rx="1.2"/><rect class="b2" x="131" y="251" width="44" height="3.5" rx="1.8"/><rect class="b1" x="131" y="260" width="84" height="2.5" rx="1.2"/><rect class="b1" x="131" y="267" width="66" height="2.5" rx="1.2"/></svg></span>
+    </a>
+    <a class="thumb enter" href="/articles/" data-sel style="--i: 4">
+      <span class="thumb-name">Articles</span>
+      <span class="thumb-box" data-sel-box><svg class="art" viewBox="0 0 236 300" aria-hidden="true" focusable="false"><rect class="h" x="20" y="22" width="58" height="7" rx="3.5"/><rect class="as ants" x="20.5" y="50.5" width="195" height="229" rx="7"/><path class="as" d="M112 165H124M118 159V171"/></svg></span>
+    </a>
+    <a class="thumb enter" href="/cv/" data-sel style="--i: 5">
+      <span class="thumb-name">CV</span>
+      <span class="thumb-box" data-sel-box><svg class="art" viewBox="0 0 236 300" aria-hidden="true" focusable="false"><rect class="h" x="20" y="22" width="30" height="7" rx="3.5"/><rect class="as" x="172.5" y="19.5" width="43" height="13" rx="4.5"/><path class="l1" d="M20 50H216"/><rect class="b1" x="20" y="60" width="26" height="2.5" rx="1.2"/><rect class="b2" x="62" y="59" width="104" height="4" rx="2"/><rect class="b1" x="62" y="69" width="154" height="2.5" rx="1.2"/><rect class="b1" x="62" y="76" width="120" height="2.5" rx="1.2"/><path class="l1" d="M20 92H216"/><rect class="b1" x="20" y="102" width="26" height="2.5" rx="1.2"/><rect class="b2" x="62" y="101" width="70" height="4" rx="2"/><rect class="b1" x="62" y="111" width="154" height="2.5" rx="1.2"/><rect class="b1" x="62" y="118" width="120" height="2.5" rx="1.2"/><path class="l1" d="M20 134H216"/><rect class="b1" x="20" y="144" width="26" height="2.5" rx="1.2"/><rect class="b2" x="62" y="143" width="70" height="4" rx="2"/><rect class="b1" x="62" y="153" width="154" height="2.5" rx="1.2"/><path class="l1" d="M20 169H216"/><rect class="b1" x="20" y="179" width="26" height="2.5" rx="1.2"/><rect class="b2" x="62" y="178" width="92" height="4" rx="2"/><rect class="b1" x="62" y="188" width="154" height="2.5" rx="1.2"/><path class="l1" d="M20 204H216"/><rect class="b1" x="20" y="214" width="26" height="2.5" rx="1.2"/><rect class="b2" x="62" y="213" width="86" height="4" rx="2"/><path class="l1" d="M20 232H216"/><rect class="b1" x="20" y="242" width="26" height="2.5" rx="1.2"/><rect class="b2" x="62" y="241" width="64" height="4" rx="2"/></svg></span>
+    </a>
+  </nav>
 </main>
-
-<footer class="wrap">
-  <p><a href="mailto:stainerjames@hotmail.com">stainerjames@hotmail.com</a></p>
+<footer class="foot enter" style="--i: 7">
+  <span class="status"><i></i>Open to new roles</span>
+  <span class="foot-links"><a class="quiet" href="mailto:stainerjames@hotmail.com">Email</a><a class="quiet" href="https://uk.linkedin.com/in/james-stainer-1a0a84140">LinkedIn</a><a class="quiet" href="https://scholar.google.com/citations?user=jifKNDAAAAAJ">Scholar</a></span>
 </footer>
 </body>
 </html>
