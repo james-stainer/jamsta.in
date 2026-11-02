@@ -145,14 +145,14 @@
 
   const ghost = document.createElement('div');
   ghost.className = 'ghost';
-  ghost.innerHTML = '<span class="ghost-inner"><svg viewBox="0 0 15 15"><path d="M1.5 1 13.5 6 8 7.7 5.9 13.5z"/></svg><span>James</span></span>';
+  ghost.innerHTML = '<span class="ghost-inner"><svg viewBox="0 0 15 15"><path d="M1.5 1 13.5 6 8 7.7 5.9 13.5z"/></svg><span>James Stainer, PhD</span></span>';
   layer.append(ghost);
 
   const point = (thumb, fx, fy) => {
     const rect = measure(thumb);
     return `translate(${Math.round(rect.left + scrollX + rect.width * fx)}px, ${Math.round(rect.top + scrollY + rect.height * fy)}px)`;
   };
-  const parked = () => point(thumbs[thumbs.length - 1], .68, .9);
+  const parked = () => point(thumbs[thumbs.length - 1], .44, .9);
   const park = () => { ghost.style.transform = parked(); };
 
   addEventListener('resize', () => {
