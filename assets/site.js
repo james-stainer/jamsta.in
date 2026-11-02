@@ -77,7 +77,6 @@
 
   let selected = null;
   let release = 0;
-  let touched = false;
 
   const measure = (host) => (host.querySelector('[data-sel-box]') || host).getBoundingClientRect();
 
@@ -113,7 +112,6 @@
   document.addEventListener('pointerover', (event) => {
     const host = event.target.closest('[data-sel]');
     if (host) {
-      touched = true;
       if (host !== selected) select(host);
       else clearTimeout(release);
     } else if (selected) {
@@ -125,7 +123,6 @@
     if (!event.target.matches(':focus-visible')) return;
     const host = event.target.closest('[data-sel]');
     if (host) {
-      touched = true;
       select(host);
     } else if (selected) {
       deselect(0);
@@ -138,122 +135,4 @@
 
   addEventListener('resize', () => deselect(0));
   addEventListener('pagehide', () => box.classList.remove('on'));
-
-  // On the landing page, someone else is already in the file. They move the way a hand does:
-  // along a slight arc, easing in and out, then resting completely still for a while.
-  const thumbs = [...document.querySelectorAll('.thumb')];
-  if (!thumbs.length) return;
-
-  const ghost = document.createElement('div');
-  ghost.className = 'ghost';
-  ghost.innerHTML = '<svg viewBox="0 0 15 15"><path d="M1.5 1 13.5 6 8 7.7 5.9 13.5z"/></svg><span>James Stainer, PhD</span>';
-  layer.append(ghost);
-
-  const tag = ghost.querySelector('span');
-  const between = (low, high) => low + Math.random() * (high - low);
-  const wait = (ms) => new Promise((done) => setTimeout(done, ms));
-
-  // The resting place is kept relative to a frame, so it survives the window changing size.
-  let rest = { frame: thumbs.length - 1, fx: .44, fy: .9 };
-  let here = { x: 0, y: 0 };
-  let motion = 0;
-  let arrive = null;
-
-  const locate = ({ frame, fx, fy }) => {
-    const rect = measure(thumbs[frame]);
-    const room = document.documentElement.clientWidth - tag.offsetWidth - 28;
-    return { x: Math.min(rect.left + scrollX + rect.width * fx, room), y: rect.top + scrollY + rect.height * fy };
-  };
-
-  const draw = () => { ghost.style.transform = `translate(${here.x.toFixed(2)}px, ${here.y.toFixed(2)}px)`; };
-
-  const glide = (next) => new Promise((done) => {
-    rest = next;
-    const from = here;
-    const to = locate(next);
-    const dx = to.x - from.x;
-    const dy = to.y - from.y;
-    const distance = Math.hypot(dx, dy) || 1;
-    const bow = (Math.random() < .5 ? -1 : 1) * Math.min(110, distance * between(.08, .18));
-    const c1 = { x: from.x + dx * .3 - (dy / distance) * bow, y: from.y + dy * .3 + (dx / distance) * bow };
-    const c2 = { x: from.x + dx * .72 - (dy / distance) * bow * .7, y: from.y + dy * .72 + (dx / distance) * bow * .7 };
-    const duration = 380 + distance * 1.25;
-    const started = performance.now();
-    arrive = done;
-    const step = (now) => {
-      const t = Math.min(1, (now - started) / duration);
-      const s = t * t * t * (t * (t * 6 - 15) + 10);
-      const u = 1 - s;
-      here = {
-        x: u * u * u * from.x + 3 * u * u * s * c1.x + 3 * u * s * s * c2.x + s * s * s * to.x,
-        y: u * u * u * from.y + 3 * u * u * s * c1.y + 3 * u * s * s * c2.y + s * s * s * to.y,
-      };
-      draw();
-      if (t < 1) {
-        motion = requestAnimationFrame(step);
-      } else {
-        arrive = null;
-        done();
-      }
-    };
-    motion = requestAnimationFrame(step);
-  });
-
-  addEventListener('resize', () => {
-    cancelAnimationFrame(motion);
-    here = locate(rest);
-    draw();
-    if (arrive) {
-      arrive();
-      arrive = null;
-    }
-  });
-
-  const somewhereIn = (frame) => ({ frame, fx: between(.22, .72), fy: between(.3, .88) });
-
-  const wander = async (firstPause) => {
-    let pause = firstPause;
-    for (;;) {
-      await wait(pause);
-      pause = between(3500, 8000);
-      // Hold still while the visitor is choosing something, or when nobody is looking.
-      if (document.hidden || selected) continue;
-      const others = thumbs.map((_, i) => i).filter((i) => i !== rest.frame);
-      const frame = Math.random() < .3 ? rest.frame : others[Math.floor(Math.random() * others.length)];
-      await glide(somewhereIn(frame));
-    }
-  };
-
-  const begin = async () => {
-    // The frames slide in on load, so only measure them once they have landed.
-    await Promise.allSettled([document.fonts.ready, ...thumbs.flatMap((thumb) => thumb.getAnimations().map((run) => run.finished))]);
-
-    let played = false;
-    try { played = sessionStorage.getItem('intro') === '1'; sessionStorage.setItem('intro', '1'); } catch {}
-
-    if (played || calm || root.classList.contains('vt')) {
-      here = locate(rest);
-      draw();
-      ghost.classList.add('on');
-      if (!calm) wander(between(900, 1800));
-      return;
-    }
-
-    // First visit: the cursor crosses the file, selects a frame, then moves on.
-    rest = { frame: thumbs.length - 1, fx: 1.06, fy: 1.04 };
-    here = locate(rest);
-    draw();
-    ghost.classList.add('on');
-    await wait(280);
-    await glide({ frame: 0, fx: .78, fy: .86 });
-    await wait(200);
-    if (!touched) select(thumbs[0]);
-    await wait(1100);
-    if (!touched) deselect(0);
-    await wait(450);
-    await glide(somewhereIn(thumbs.length - 1));
-    wander(between(3500, 8000));
-  };
-
-  begin();
 })();

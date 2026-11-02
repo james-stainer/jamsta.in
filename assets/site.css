@@ -958,42 +958,6 @@ a:focus-visible > .arrow {
 html.js a[data-sel]:focus-visible,
 html.js .cell-title a:focus-visible { outline: none; }
 
-/* The other person in the file. The script moves it; here it only fades in. */
-.ghost {
-  position: absolute;
-  top: 0;
-  left: 0;
-  opacity: 0;
-  transition: opacity .35s ease;
-  will-change: transform;
-}
-
-.ghost.on { opacity: 1; }
-
-.ghost svg {
-  display: block;
-  width: 15px;
-  height: 15px;
-  fill: var(--accent);
-  stroke: var(--frame);
-  stroke-width: 1.2;
-  paint-order: stroke;
-}
-
-.ghost span {
-  position: absolute;
-  left: 11px;
-  top: 13px;
-  padding: 1px 7px 2px;
-  border-radius: 2px 7px 7px 7px;
-  background: var(--accent);
-  color: var(--on-accent);
-  font-size: 11px;
-  font-weight: 500;
-  line-height: 1.45;
-  white-space: nowrap;
-}
-
 /* Line art, drawn only in hairlines and low-opacity ink. Colour arrives on selection. */
 .art {
   display: block;
