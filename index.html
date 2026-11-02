@@ -1,0 +1,153 @@
+<!doctype html>
+<html lang="en-GB">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>James Stainer | Machine learning and data science</title>
+<meta name="description" content="James Stainer builds forecasting systems and data pipelines on large, real-world data, and evaluates how frontier AI models reason. London, UK.">
+<link rel="canonical" href="https://jamsta.in/">
+<meta property="og:type" content="profile">
+<meta property="og:title" content="James Stainer | Machine learning and data science">
+<meta property="og:description" content="Forecasting systems, data pipelines and AI evaluation. London, UK.">
+<meta property="og:url" content="https://jamsta.in/">
+<link rel="icon" href="favicon.svg" type="image/svg+xml">
+<link rel="stylesheet" href="styles.css">
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Person",
+  "name": "James Stainer",
+  "url": "https://jamsta.in/",
+  "jobTitle": "Data Science Consultant",
+  "address": { "@type": "PostalAddress", "addressLocality": "London", "addressCountry": "GB" },
+  "alumniOf": ["University College London", "Lancaster University"],
+  "sameAs": [
+    "https://uk.linkedin.com/in/james-stainer-1a0a84140",
+    "https://scholar.google.com/citations?user=jifKNDAAAAAJ"
+  ]
+}
+</script>
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="hero wrap">
+  <h1>James Stainer</h1>
+  <p class="lede">I build forecasting systems and data pipelines on large, real-world data, and test how well frontier AI models reason.</p>
+  <p class="meta">London, UK. Open to machine learning, data science and AI evaluation roles.</p>
+  <nav class="links" aria-label="Contact and profiles">
+    <a class="primary" href="mailto:stainerjames@hotmail.com">Email me</a>
+    <a href="James_Stainer_CV.pdf">CV (PDF)</a>
+    <a href="https://uk.linkedin.com/in/james-stainer-1a0a84140">LinkedIn</a>
+    <a href="https://scholar.google.com/citations?user=jifKNDAAAAAJ">Google Scholar</a>
+  </nav>
+  <p class="print-contact"><a href="https://jamsta.in/">jamsta.in</a> | <a href="mailto:stainerjames@hotmail.com">stainerjames@hotmail.com</a> | <a href="https://uk.linkedin.com/in/james-stainer-1a0a84140">LinkedIn</a> | <a href="https://scholar.google.com/citations?user=jifKNDAAAAAJ">Google Scholar</a></p>
+  <svg class="trace" viewBox="0 0 960 64" preserveAspectRatio="none" aria-hidden="true" focusable="false">
+    <path class="observed" d="M0 40 H70 l8 -3 l8 3 H112 l6 5 l9 -35 l9 42 l6 -12 H204 l8 -3 l8 3 H246 l6 5 l9 -35 l9 42 l6 -12 H338 l8 -3 l8 3 H380 l6 5 l9 -35 l9 42 l6 -12 H472 l8 -3 l8 3 H514 l6 5 l9 -35 l9 42 l6 -12 H606"/>
+    <path class="forecast" d="M606 40 l8 -3 l8 3 H648 l6 5 l9 -35 l9 42 l6 -12 H740 l8 -3 l8 3 H782 l6 5 l9 -35 l9 42 l6 -12 H874 l8 -3 l8 3 H960"/>
+  </svg>
+</header>
+
+<main id="main" class="wrap">
+
+  <section aria-labelledby="work">
+    <h2 id="work">Selected work</h2>
+
+    <article class="project">
+      <h3>Forecasting vital signs in paediatric intensive care</h3>
+      <p class="sub">PhD thesis, UCL and Great Ormond Street Hospital</p>
+      <p>I used a PyTorch StemGNN model to forecast heart rate and blood pressure together from 5-second bedside-monitor data, treating the dependencies between them as a learned graph.</p>
+      <p>I also built the clinical time-series pipeline behind it, which took 4,120 raw admissions down to 364 high-quality patients and about 12.5M observations. It covers age-aware normalisation, missing data, outlier detection and sliding-window segmentation.</p>
+      <table class="result">
+        <caption>Error on 5-minute-ahead forecasts at 1-minute resolution (MAPE, lower is better)</caption>
+        <thead><tr><th scope="col">Model</th><th scope="col">Heart rate</th><th scope="col">Blood pressure</th></tr></thead>
+        <tbody>
+          <tr class="win"><th scope="row">StemGNN</th><td>2.30%</td><td>3.49%</td></tr>
+          <tr><th scope="row">ARIMA</th><td>2.82%</td><td>3.85%</td></tr>
+        </tbody>
+      </table>
+    </article>
+
+    <article class="project">
+      <h3>DrugnomeAI: predicting which human genes can be drugged</h3>
+      <p class="sub">With AstraZeneca's Centre for Genomics Research. Published in <cite>Communications Biology</cite>, 2022</p>
+      <p>An ensemble machine-learning framework that scores all 19,846 human protein-coding genes for druggability, using 324 features from 15 sources. Specialised models are stratified by drug modality (small molecule, antibody, PROTAC) and by therapeutic area.</p>
+      <p>Top-ranked genes were significantly enriched for targets already in clinical development, and for genome-wide significant hits in a UK Biobank PheWAS of 450K participants. The framework outperformed three published benchmarks.</p>
+      <p class="more">
+        <a href="https://doi.org/10.1038/s42003-022-04245-4">Paper</a>
+        <a href="https://github.com/astrazeneca-cgr-publications/DrugnomeAI-release">GitHub</a>
+        <a href="http://drugnomeai.public.cgr.astrazeneca.com">Web app</a>
+      </p>
+    </article>
+
+    <article class="project">
+      <h3>Adversarial evaluation of frontier AI agents</h3>
+      <p class="sub">Freelance, current</p>
+      <p>I write hard bioinformatics and scientific coding tasks that benchmark how frontier LLM agents reason, each with a reference solver, a grading contract and a deliberate reasoning trap. I then audit the agent transcripts for answer leakage, shortcuts and data bugs, so a failure means the model got it wrong and not that the task was broken.</p>
+    </article>
+  </section>
+
+  <section aria-labelledby="experience">
+    <h2 id="experience">Experience</h2>
+    <dl class="timeline">
+      <dt>Dec 2023 to present</dt>
+      <dd>
+        <h3>Freelance AI Evaluator and Data Science Consultant</h3>
+        <p class="sub">Remote</p>
+        <p>AI evaluation and data science across multiple client projects: model-output review, scientific reasoning benchmarks, failure-mode analysis and applied AI workflows.</p>
+      </dd>
+      <dt>Oct 2022 to Apr 2023</dt>
+      <dd>
+        <h3>Data Science Intern</h3>
+        <p class="sub">AstraZeneca, Centre for Genomics Research, Cambridge</p>
+        <p>Built a PubMed-to-Elasticsearch pipeline indexing over 35M biomedical citations and abstracts. Added NLP pipelines, using BioWordVec embeddings, that ranked candidate drug-target-disease relationships for expert review in place of broad manual search.</p>
+      </dd>
+      <dt>Jun 2020 to Sep 2020</dt>
+      <dd>
+        <h3>Data Science Intern</h3>
+        <p class="sub">AstraZeneca, Centre for Genomics Research, Cambridge</p>
+        <p>Co-developed the DrugnomeAI models, working across the ML pipeline from data collection and feature engineering through to training, validation and benchmarking.</p>
+      </dd>
+    </dl>
+  </section>
+
+  <section aria-labelledby="education">
+    <h2 id="education">Education</h2>
+    <dl class="timeline">
+      <dt>2021 to 2026</dt>
+      <dd><h3>PhD, AI-enabled Healthcare</h3><p class="sub">University College London. Viva passed October 2026 with minor corrections.</p></dd>
+      <dt>2020 to 2021</dt>
+      <dd><h3>MRes, AI-enabled Healthcare</h3><p class="sub">University College London</p></dd>
+      <dt>2019 to 2020</dt>
+      <dd><h3>MSc, Data Science</h3><p class="sub">Lancaster University</p></dd>
+      <dt>2016 to 2019</dt>
+      <dd><h3>BSc (Hons), Mathematics</h3><p class="sub">Lancaster University</p></dd>
+    </dl>
+  </section>
+
+  <section aria-labelledby="publications">
+    <h2 id="publications">Publications and presentations</h2>
+    <ul class="pubs">
+      <li>Raies A, Tulodziecka E, <strong>Stainer J</strong>, et al. <a href="https://doi.org/10.1038/s42003-022-04245-4">DrugnomeAI is an ensemble machine-learning framework for predicting druggability of candidate drug targets.</a> <cite>Communications Biology</cite> 5, 1291 (2022).</li>
+      <li><strong>Stainer J</strong>, et al. Poster, IEEE Engineering in Medicine and Biology Society (EMBS) Conference, 2024.</li>
+      <li><strong>Stainer J</strong>, et al. Poster, IEEE International Conference on Biomedical and Health Informatics (BHI), 2024.</li>
+    </ul>
+  </section>
+
+  <section aria-labelledby="skills">
+    <h2 id="skills">Skills</h2>
+    <dl class="skills">
+      <dt>Languages</dt><dd>Python, SQL, R, Bash</dd>
+      <dt>Machine learning</dt><dd>PyTorch, TensorFlow, scikit-learn, graph neural networks, NLP, ensemble methods</dd>
+      <dt>Methods</dt><dd>Time-series forecasting, statistical and Bayesian inference, change-point detection</dd>
+      <dt>Data and infrastructure</dt><dd>Data pipelines, pandas, NumPy, Elasticsearch, feature engineering, SLURM, Git</dd>
+    </dl>
+  </section>
+
+</main>
+
+<footer class="wrap">
+  <p><a href="mailto:stainerjames@hotmail.com">stainerjames@hotmail.com</a></p>
+</footer>
+</body>
+</html>
